@@ -1,7 +1,9 @@
 # Bitácora — Gestor de contratos con semaforización de vencimiento
 
 Proyecto: `contract-exp-status-mvp`
+
 Curso: Claude Code desde cero — Certificación Claude Code Dev (Coding Latam)
+
 Repositorio: https://github.com/christinavelezs/contract-exp-status-mvp
 
 ---
@@ -14,10 +16,10 @@ Configuración del entorno:
   que se agregó a través de comando.
 
 <img width="594" height="338" alt="image" src="https://github.com/user-attachments/assets/65dbaa8d-c251-4512-854e-1ac58067d7b8" />
-
 <img width="634" height="396" alt="image" src="https://github.com/user-attachments/assets/238a8ed8-7832-4ceb-ae92-3491e3ee7dc2" />
-
 <img width="638" height="177" alt="image" src="https://github.com/user-attachments/assets/38162949-96b4-4cae-b1ac-223d201b48c6" />
+<img width="884" height="634" alt="image" src="https://github.com/user-attachments/assets/c19a5bad-4428-4afd-b827-af4bfa7215c4" />
+
 
 
 **Qué se hizo:** se creó CLAUDE.md manualmente para evitar que se genere un 
@@ -38,7 +40,7 @@ vencimiento, asesor sin contratos asignados) y fuera de alcance (renovación
 automática real, notificaciones por email/SMS, integración con sistemas
 reales de Enotria).
 
-- [CAPTURA opcional: confirmación de creación de docs/spec.md en Claude Code]
+<img width="1276" height="759" alt="image" src="https://github.com/user-attachments/assets/b948b17d-8733-408a-8768-b699bbbc1cb9" />
 
 ---
 
@@ -49,13 +51,16 @@ para que proponga estructura de archivos, endpoints, modelo de datos y tests.
 Antes de aprobar, el plan se detuvo dos veces a pedir confirmación, y se
 identificó un tercer punto faltante que se agregó manualmente.
 
+<img width="1135" height="385" alt="image" src="https://github.com/user-attachments/assets/1c235a2b-fb26-43d8-9956-94da7a7f720c" />
+
+
 ### Ajuste 1 — Librerías extra
 
 El CLAUDE.md solo declaraba Express/SQLite/Jest. El plan propuso añadir
 `zod` (validación de esquemas) y `better-sqlite3` (driver síncrono). Se
 investigó con Claude para decidir si añadir o no.
 
-- [CAPTURA "ANTES": menú "Librerías extra" con opciones "Sí, zod + better-sqlite3" vs "Sin librerías extra"]
+<img width="1135" height="385" alt="image" src="https://github.com/user-attachments/assets/2c2a4089-341d-4579-be9a-d2fffaf6a230" />
 
 Se aprobaron ambas por guaurdar coherencia con la carpeta `schemas/` ya
 definida en el CLAUDE.md.
@@ -67,13 +72,13 @@ de "operaciones CRUD completas" del caso de estudio:
 1. Incluir solo POST, sin PATCH/DELETE.
 2. Solo lectura (GET) + datos sembrados vía seed.js, sin endpoint de creación.
 
-- [CAPTURA "ANTES": menú "Alcance CRUD" con las dos opciones incompletas]
+<img width="1139" height="242" alt="image" src="https://github.com/user-attachments/assets/9b9ff8e9-5adf-4458-bbcf-1d60b98bd86f" />
 
 Se rechazaron ambas opciones y se escribió manualmente la corrección
 pidiendo las 5 operaciones: `POST`, `GET` listar, `GET` por id, `PUT`,
 `DELETE`, más `seed.js` para datos ficticios en los contratos.
 
-- [CAPTURA "DESPUÉS": instrucción escrita pidiendo el CRUD completo]
+<img width="1126" height="511" alt="image" src="https://github.com/user-attachments/assets/4b7c376f-5282-4650-9455-561c0f824617" />
 
 ### Ajuste 3 — README faltante
 
@@ -81,7 +86,7 @@ Al revisar el plan generado en texto, se detectó que no incluía `README.md`
 en la estructura de archivos. Se agregó a través de instrucción manual antes
 de aprobar el plan.
 
-- [CAPTURA: plan final aprobado, ya con README.md incluido en la estructura]
+<img width="1271" height="524" alt="image" src="https://github.com/user-attachments/assets/01528772-a2f1-401c-ac20-871ede860bd2" />
 
 ---
 
@@ -89,21 +94,20 @@ de aprobar el plan.
 
 Ejecución del plan aprobado en auto mode.
 
-- [CAPTURA: resumen final de auto mode — archivos creados, resultado de tests]
+<img width="1274" height="499" alt="image" src="https://github.com/user-attachments/assets/698034c9-fd64-4652-b6aa-7a0591d13ba7" />
 
 **Fricción de entorno:** la máquina no tenía Node/npm/pnpm instalados (en los
-pasos iniciales no hizo correctamente la instalación), lo que no permitió la
+pasos iniciales no se hizo correctamente la instalación), lo que no permitió la
 verificación automática (`pnpm install`, `migrate`, `seed`, `test`) durante 
 la ejecución del plan. Se resolvió instalando Node.js desde nodejs.org y habilitando
 pnpm vía corepack.
 
-- [CAPTURA: error "EACCES: permission denied" al habilitar corepack sin sudo]
-- [CAPTURA: `sudo corepack enable` ejecutado correctamente]
-- [CAPTURA: `pnpm --version` → 11.11.0]
+<img width="610" height="156" alt="image" src="https://github.com/user-attachments/assets/e4c8a144-a549-47f2-b58f-e2530d907423" />
+<img width="1139" height="448" alt="image" src="https://github.com/user-attachments/assets/312aef39-a683-4dc4-90fc-32c64e1b1a77" />
 
 **Resultado de la verificación automatizada:**
 
-- [CAPTURA: resultado "40/40 tests pasaron"]
+<img width="1111" height="492" alt="image" src="https://github.com/user-attachments/assets/e7aa846f-a106-47ab-836b-139dad9a349e" />
 
 **Verificación manual contra datos reales:** a sugerencia de Claude se levantó el 
 servidor con `pnpm run dev` en segundo plano y se probó con `curl`:
@@ -113,7 +117,8 @@ servidor con `pnpm run dev` en segundo plano y se probó con `curl`:
   sin contratos verificado (`contratos: []`).
 - `GET /api/contratos?color=ROJO_CRITICO` → filtro correcto.
 
-- [CAPTURA: respuestas de los tres endpoints probados con curl]
+<img width="1133" height="426" alt="image" src="https://github.com/user-attachments/assets/19e4ae87-942a-4d39-91a9-3969e0e831a9" />
+<img width="1143" height="369" alt="image" src="https://github.com/user-attachments/assets/3587f899-442c-4c92-b5b8-274f7b203d5a" />
 
 Se detuvo el servidor al finalizar la verificación.
 
@@ -127,9 +132,10 @@ schema (zod) → modelo (better-sqlite3, consultas preparadas) → servicio (ló
 → controlador/ruta → tests (unitario + integración)
 junto con reglas imperativas (nunca SQL por concatenación, siempre pnpm, siempre envolver la respuesta en `{ "data": ... }`).
 
-- [CAPTURA: creación del archivo SKILL.md, "Wrote 37 lines"]
+<img width="1137" height="861" alt="image" src="https://github.com/user-attachments/assets/7e1cc489-52a8-431d-9ed9-101162ff3958" />
+<img width="1128" height="399" alt="image" src="https://github.com/user-attachments/assets/a17c9234-99b7-449d-9ae4-1976ab3c3861" />
 
-**Prueba del Skill:** se pidió un segundo endpoint (`GET /api/asesores/:id`
+**Skill en acción:** se pidió un segundo endpoint (`GET /api/asesores/:id`
 con conteo de contratos por color de semáforo) sin repetir ninguna regla del
 patrón. Claude Code siguió el Skill sin que se le recordara (-sigo sin entender 
 bien como identifica las palabras-):
@@ -140,7 +146,10 @@ bien como identifica las palabras-):
 - Actualizó el README con la nueva fila en la tabla de endpoints, aunque no 
 se pidió explicitamente.
 
-- [CAPTURA: resultado de la prueba del skill — "45/45 tests" + resumen de lo implementado]
+<img width="940" height="302" alt="image" src="https://github.com/user-attachments/assets/009276df-e84b-4582-9d27-9d7d9e2822d6" />
+<img width="941" height="999" alt="image" src="https://github.com/user-attachments/assets/d3683529-1625-40f1-b023-9f844d26b6ae" />
+<img width="935" height="685" alt="image" src="https://github.com/user-attachments/assets/916d0e19-6710-4ef2-b807-40fd61c36087" />
+
 
 ---
 
@@ -149,17 +158,19 @@ se pidió explicitamente.
 Se intentó conectar el MCP de GitHub para crear el repositorio remoto y
 hacer el push directamente desde Claude Code.
 
-- [CAPTURA: primer intento fallido — "Invalid environment variable format" con `--env`]
-- [CAPTURA: `claude mcp list` mostrando "github: ... ✓ Connected"]
-- [CAPTURA: sesión de Claude Code sin detectar el MCP pese a estar conectado — "No tengo acceso a un MCP de GitHub"]
+<img width="737" height="69" alt="image" src="https://github.com/user-attachments/assets/6365ae20-035f-45f4-9a19-98f61b7d8221" />
+<img width="1128" height="399" alt="image" src="https://github.com/user-attachments/assets/ff9a28e6-512a-43b4-b422-26bee1b41168" />
+<img width="1065" height="318" alt="image" src="https://github.com/user-attachments/assets/bf2c8acd-117f-4612-b021-74b57dac673f" />
+<img width="1068" height="233" alt="image" src="https://github.com/user-attachments/assets/2ce1b0a4-cad7-46d7-87b0-e135e87e2370" />
 
 **Causa raíz identificada:** Además de no escribir los comandos correctos en la terminal 
 separada para la conexión con el MCP al inicio, cuando se logró hacer la instalación no 
 se hizo en donde el proyecto la alcance sino "fuera". Para corregir, se reinicio sesión
 en Claude y se avanzo a partir de las sugerencias que daba el mismo Claude.
 
-
-- [CAPTURA: repositorio creado y pusheado — "Listo — repositorio creado y pusheado" con la URL final]
+<img width="1879" height="519" alt="image" src="https://github.com/user-attachments/assets/43a9066f-a1a9-4ff2-8bff-580a65695524" />
+<img width="1873" height="609" alt="image" src="https://github.com/user-attachments/assets/9019a330-5a26-4f4c-a372-0b7dd776d88c" />
+<img width="1884" height="432" alt="image" src="https://github.com/user-attachments/assets/85bfff99-44ea-498a-8752-e703e2526b54" />
 
 ---
 
