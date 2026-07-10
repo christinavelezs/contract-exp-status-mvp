@@ -10,15 +10,19 @@ Repositorio: https://github.com/christinavelezs/contract-exp-status-mvp
 
 Configuración del entorno:
 - Instalación en equipo (primera vez con Claude Code) e inicio del proyecto con `CLAUDE.md`.
+- Se tuvieron algunos problemas porque la terminal no loalizaba ~/.local/bin en el PATH. Así
+  que se agregó a través de comando.
 
-- [CAPTURA: instalación de Claude Code — pantalla con "Claude Code successfully installed!", versión 2.1.205]
-- [CAPTURA: error inicial "zsh: command not found: claude" antes de corregir el PATH]
-- [CAPTURA: pantalla de bienvenida "Welcome back Christina!" tras el login con la cuenta Team]
-- [CAPTURA: intento de `/init` sobre repo vacío — menú "The directory is empty" / "Skip CLAUDE.md for now"]
+<img width="594" height="338" alt="image" src="https://github.com/user-attachments/assets/65dbaa8d-c251-4512-854e-1ac58067d7b8" />
+
+<img width="634" height="396" alt="image" src="https://github.com/user-attachments/assets/238a8ed8-7832-4ceb-ae92-3491e3ee7dc2" />
+
+<img width="638" height="177" alt="image" src="https://github.com/user-attachments/assets/38162949-96b4-4cae-b1ac-223d201b48c6" />
+
 
 **Qué se hizo:** se creó CLAUDE.md manualmente para evitar que se genere un 
-archivo vacío. Para esto, con ayuda de Claude, se definió de antemano el 
-stack (Node.js + Express + SQLite + Jest), estructura de carpetas objetivo, 
+archivo vacío. Para esto, con ayuda de Claude, se definió primero el stack
+(Node.js + Express + SQLite + Jest), estructura de carpetas objetivo, 
 comandos del proyecto, convenciones (fechas ISO 8601, umbrales de alerta en
 una sola constante) y reglas imperativas, incluyendo la instrucción del profesor 
 de usar siempre `pnpm` para instalar dependencias.
